@@ -4,19 +4,21 @@ from os import path
 from flask_login import LoginManager
 import pymysql
 
-
-
 db = pymysql.connect(host='assignmentdatabase.co7landwei8p.us-east-1.rds.amazonaws.com',
-                             port='3306',
+                             port=3306,
                              user='admin',
-                             password='password',
-                             database='admin,lostitem,subscribers'
+                             password='Password',
+                             database='lostfound'
                               )
                                    
 # change db to rds database
 # db = SQLAlchemy() host='assignmentdatabase.co7landwei8p.us-east-1.rds.amazonaws.com', port='3306' user='admin',password='password'
 DB_NAME = "database.db"
 
+sql_query = "select * from lostitem"
+cursor = db.cursor()
+cursor.execute(sql_query)
+print("Total number of rows in table: ", cursor.rowcount)
 
 
 def create_app():
@@ -24,7 +26,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'ABCDEFU'
 
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    db.init_app(app)
+    # db.init_app(app)
     from .views import views
 
     # authententicationfor admin

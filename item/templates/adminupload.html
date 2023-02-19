@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+
+{% block headder %}
+<nav>
+    <div class="topnav">
+        <a href="/">Home</a>
+
+        <a class="active" href="/upload">upload</a>
+        <a href="/subscribe">Subscribe</a>
+    </div>
+</nav>
+{% endblock %}
+{% block title %}Subscribe{% endblock %}
+
+{% block content %}
+<h1>Upload objects.</h1>
+<form action="/adminupload" method="post">
+    <div class="form-group row">
+        <label for="item">item name :</label>
+        <input type="text" id="item" name="item" placeholder="Enter item name" class="form-control">
+    </div>
+
+    <div class="form-group row">
+        <label for="date">Date of report </label>
+        <input type="date" id="date" name="date" class="form-control"
+            placeholder="Enter date of report item"></textarea>
+    </div>
+    <div class="form-group row">
+        <label for="description">Description of reported item </label>
+        <input type="text" id="description" name="description" class="form-control"
+            placeholder="Enter Description of reported item "></textarea>
+    </div>
+    <div class="form-group row">
+        <label for="category">Category of reported item </label>
+        <select type="category" id="category" name="category" class="form-control" placeholder="Select Category of Reported object ">
+        <option selected>Category</option>
+        {% for category_element in category  %}
+        <option id="{{category_element}}">{{category_element}}</option>
+        {% endfor %}
+        </select>  
+    </div>
+    <div class="form-group row">
+        <label for="image">Upload image of item </label>
+        <input type="file" id="image" name="item" class="form-control"
+            placeholder="upload image "></textarea>
+    </div>
+    <input type="submit" value="Submit" onsubmit=" alert('you have successfully subscribed to our service ');">
+</form>
+{% endblock %}
