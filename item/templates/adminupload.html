@@ -4,17 +4,16 @@
 <nav>
     <div class="topnav">
         <a href="/">Home</a>
-
         <a class="active" href="/upload">upload</a>
         <a href="/subscribe">Subscribe</a>
     </div>
 </nav>
 {% endblock %}
-{% block title %}Subscribe{% endblock %}
+{% block title %}upload{% endblock %}
 
 {% block content %}
 <h1>Upload objects.</h1>
-<form action="/adminupload" method="post">
+<form action="/adminupload" enctype="multipart/form-data" method="post">
     <div class="form-group row">
         <label for="item">item name :</label>
         <input type="text" id="item" name="item" placeholder="Enter item name" class="form-control">
@@ -41,9 +40,8 @@
     </div>
     <div class="form-group row">
         <label for="image">Upload image of item </label>
-        <input type="file" id="image" name="item" class="form-control"
-            placeholder="upload image "></textarea>
+        <input type="file" id="image" name="image" class="form-control" placeholder="upload image "></textarea>
     </div>
-    <input type="submit" value="Submit" onsubmit=" alert('you have successfully subscribed to our service ');">
+    <input type="submit" value="Submit" onsubmit=" alert('you have successfully subscribed to our service');">
 </form>
 {% endblock %}
