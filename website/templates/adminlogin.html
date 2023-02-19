@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block title %}AdminLogin{% endblock %}
+
+{% block content %} 
+
+<h1>Keep up to date.</h1>
+        <form action="/insert" method="post">
+            <div class="form-group row">
+                <label for="Aemaik">Email</label>
+                <input type="text" id="Aemaik" name="Aemaik" placeholder="Enter Admin email" class="form-control">
+            </div>
+           
+            <div class="form-group row">
+                <label for="Password">Passwprd</label>
+                <input type="tel" id="APassword" name="APassword" class="form-control"  placeholder="AdminAPassword"  ></textarea>
+            </div>
+            <input type="submit" value="Submit" onsubmit=" alert('you have successfully subscribed to our service ');"  >
+            </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+{% block title %}Homepage{% endblock %}
+
+{% block content %} 
+
+<table class="table">
+    <!-- <select id="categoryFilter">
+      <option selected>Category</option>
+      {% for category_element in category %}
+      <option id="{{category_element}}">{{category_element}}</option>
+      {% endfor %}
+    </select> -->
+    <thead>
+      <tr>
+        <th> image</th>
+        <th> Item </th>
+        <th> Date of report</th>
+        <th> Description</th>
+        <th> Category</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      {% for row_element in your_data %}
+     
+      <tr>
+        <th><img class ="logo" src=" {{ url_for('static', filename=row_element[0] ) }}" /></th>
+        
+        <th> {{row_element[1]}}</th>
+        <th> {{row_element[2]}}</th>
+        <th> {{row_element[3]}}</th>
+        <th> {{row_element[4]}}</th>
+      </tr>
+      
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+{% endblock %}
